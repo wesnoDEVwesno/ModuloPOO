@@ -414,57 +414,57 @@ class Program
 // }
 
 
-class Funcionario
-{
-    public string Nome {get; set;} = "";
-    public string Cargo {get; set;} = "";
-    public double Salario {get; set;}
+// class Funcionario
+// {
+//     public string Nome {get; set;} = "";
+//     public string Cargo {get; set;} = "";
+//     public double Salario {get; set;}
 
-    public Funcionario (string nome, string cargo, double salario)
-    {
-        Nome = nome;
-        Cargo = cargo;
-        Salario = salario;
-    }
+//     public Funcionario (string nome, string cargo, double salario)
+//     {
+//         Nome = nome;
+//         Cargo = cargo;
+//         Salario = salario;
+//     }
 
-    public void ExibirInformações ()
-    {
-        Console.WriteLine($"Nome: {Nome}");
-        Console.WriteLine($"Cargo: {Cargo}");
-        Console.WriteLine($"Salário: {Salario:C2}");
-    }
+//     public void ExibirInformações ()
+//     {
+//         Console.WriteLine($"Nome: {Nome}");
+//         Console.WriteLine($"Cargo: {Cargo}");
+//         Console.WriteLine($"Salário: {Salario:C2}");
+//     }
 
-    public bool RecebeSalarioAlto()
-    {
-        return Salario > 3000;
-    }
-}
+//     public bool RecebeSalarioAlto()
+//     {
+//         return Salario > 3000;
+//     }
+// }
 
-class Program
-{
-    static void Main()
-    {
-        Funcionario funcionario1 = new Funcionario ("Erick", "Desenvolvedor", 5400);
-        funcionario1.ExibirInformações();
+// class Program
+// {
+//     static void Main()
+//     {
+//         Funcionario funcionario1 = new Funcionario ("Erick", "Desenvolvedor", 5400);
+//         funcionario1.ExibirInformações();
         
-        bool resultado1 = funcionario1.RecebeSalarioAlto();
-        Console.WriteLine($"Recebe salário alto > {resultado1}");
+//         bool resultado1 = funcionario1.RecebeSalarioAlto();
+//         Console.WriteLine($"Recebe salário alto > {resultado1}");
 
-        Console.WriteLine();
+//         Console.WriteLine();
 
-        Funcionario funcionario2 = new Funcionario ("Letícia", "Secretária", 1200);
-        funcionario2.ExibirInformações();
-        bool resultado2 = funcionario2.RecebeSalarioAlto();
-        Console.WriteLine($"Recebe salário alto > {resultado2}");
+//         Funcionario funcionario2 = new Funcionario ("Letícia", "Secretária", 1200);
+//         funcionario2.ExibirInformações();
+//         bool resultado2 = funcionario2.RecebeSalarioAlto();
+//         Console.WriteLine($"Recebe salário alto > {resultado2}");
         
-        Console.WriteLine();
+//         Console.WriteLine();
 
-        Funcionario funcionario3 = new Funcionario ("Erika", "Organizadora", 2900);
-        funcionario3.ExibirInformações();
-        bool resultado3 = funcionario3.RecebeSalarioAlto();
-        Console.WriteLine($"Recebe salário alto > {resultado3}");
-    }
-}
+//         Funcionario funcionario3 = new Funcionario ("Erika", "Organizadora", 2900);
+//         funcionario3.ExibirInformações();
+//         bool resultado3 = funcionario3.RecebeSalarioAlto();
+//         Console.WriteLine($"Recebe salário alto > {resultado3}");
+//     }
+// }
 
 
 // 📚 Revisão prática — Exercício 2: Sistema de Estoque
@@ -493,22 +493,44 @@ class Produto
         Console.WriteLine($"Quantidade: {Quantidade}");
     }
 
+    public double CalcularValorEstoque()
+    {
+        return Preco * Quantidade;
+    }
 }
 
 
+class Program
 
+{
+    static void Main()
+    {
+        Produto produto1 = new Produto("Notebook", 3500, 8);
+        Console.WriteLine();
+        produto1.ExibirInformações();
+        Console.WriteLine();
+        double valorTotal = produto1.CalcularValorEstoque();
+        Console.WriteLine($"Valor total de {produto1.Nome} em estoque: {valorTotal:C2}");
 
-
-
-
-
-
-
-
-
-
-
-
+        ////////////////////////////////////////////////////
+        
+        Produto produto2 = new Produto("Mouse Gamer", 150, 12);
+        Console.WriteLine();
+        produto2.ExibirInformações();
+        Console.WriteLine();
+        double valorTota2 = produto2.CalcularValorEstoque();
+        Console.WriteLine($"Valor total de {produto2.Nome} em estoque: {valorTota2:C2}");
+        
+        ////////////////////////////////////////////////////
+        
+        Produto produto3 = new Produto("Teclado Mecânico", 1400, 15);
+        Console.WriteLine();
+        produto3.ExibirInformações();
+        Console.WriteLine();
+        double valorTota3 = produto3.CalcularValorEstoque();
+        Console.WriteLine($"Valor total de {produto3.Nome} em estoque: {valorTota3:C2}");
+    }
+}
 
 
 
