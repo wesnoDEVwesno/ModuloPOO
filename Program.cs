@@ -9,7 +9,7 @@
 
 // /* class Livro
 // {
-    
+
 // } */
 
 
@@ -324,7 +324,7 @@ class Program
 //         }
 //     }
 
-    
+
 
 // }
 
@@ -383,7 +383,7 @@ class Program
 //             Console.WriteLine("Livro curto ou médio!");
 //         }
 //     }
-    
+
 //     public bool EhLivroLongo()
 //     {
 //         return Paginas > 500;
@@ -409,7 +409,7 @@ class Program
 //         bool resultado2 = livro2.EhLivroLongo();
 //         Console.WriteLine($"Crime e Castigo: {resultado2}");
 //         //////////////////////////
-        
+
 //     }
 // }
 
@@ -446,7 +446,7 @@ class Program
 //     {
 //         Funcionario funcionario1 = new Funcionario ("Erick", "Desenvolvedor", 5400);
 //         funcionario1.ExibirInformações();
-        
+
 //         bool resultado1 = funcionario1.RecebeSalarioAlto();
 //         Console.WriteLine($"Recebe salário alto > {resultado1}");
 
@@ -456,7 +456,7 @@ class Program
 //         funcionario2.ExibirInformações();
 //         bool resultado2 = funcionario2.RecebeSalarioAlto();
 //         Console.WriteLine($"Recebe salário alto > {resultado2}");
-        
+
 //         Console.WriteLine();
 
 //         Funcionario funcionario3 = new Funcionario ("Erika", "Organizadora", 2900);
@@ -513,16 +513,16 @@ class Program
 //         Console.WriteLine($"Valor total de {produto1.Nome} em estoque: {valorTotal:C2}");
 
 //         ////////////////////////////////////////////////////
-        
+
 //         Produto produto2 = new Produto("Mouse Gamer", 150, 12);
 //         Console.WriteLine();
 //         produto2.ExibirInformações();
 //         Console.WriteLine();
 //         double valorTota2 = produto2.CalcularValorEstoque();
 //         Console.WriteLine($"Valor total de {produto2.Nome} em estoque: {valorTota2:C2}");
-        
+
 //         ////////////////////////////////////////////////////
-        
+
 //         Produto produto3 = new Produto("Teclado Mecânico", 1400, 15);
 //         Console.WriteLine();
 //         produto3.ExibirInformações();
@@ -536,103 +536,201 @@ class Program
 // 📚 Módulo POO — Aula 3
 // 🏦 Sistema Bancário
 
-class ContaBancaria
+// class ContaBancaria
+
+// {
+//     public string Titular {get; set;} = "";
+//     public int NumeroConta {get; set;}
+//     public double Saldo {get; set;}
+
+//     public ContaBancaria (string titular, int numeroconta, double saldo)
+//     {
+//         Titular = titular;
+//         NumeroConta = numeroconta;
+//         Saldo = saldo;
+//     }
+
+
+//     public void ExibirInformações ()
+//     {
+//         Console.WriteLine($"Titular da conta: {Titular}");
+//         Console.WriteLine($"Número da conta: {NumeroConta}");
+//         Console.WriteLine($"Saldo em conta: {Saldo:C2}");
+//     }
+
+//     public void Depositar(double valor)
+//     {
+//         if (valor > 0)
+//         {
+//             Saldo+=valor;
+//         }
+//         else
+//         {
+//             Console.WriteLine("Valor de depósito inválido!");
+//         }
+
+//     }
+//     public void Sacar(double valores)
+//     {
+//         if (valores > 0 && valores <= Saldo)
+//         {
+//             Saldo-=valores;
+//         }
+//         else
+//         {
+//             Console.WriteLine("Valor de saque inválido!");
+//         }
+//     }
+// }
+
+
+// class Program
+
+// {
+//     static void Main()
+//     {
+//         ContaBancaria contaBancaria1 = new ContaBancaria("Erick", 45263359, 4561);
+//         Console.WriteLine();
+//         contaBancaria1.ExibirInformações();
+//         Console.WriteLine();
+//         /////////////////////////////
+//         contaBancaria1.Depositar(500);
+//         Console.WriteLine();
+//         contaBancaria1.ExibirInformações();
+//         /////////////////////////////
+//         contaBancaria1.Sacar(1000);
+//         Console.WriteLine();
+//         contaBancaria1.ExibirInformações();
+//         ////////////////////////////
+//         contaBancaria1.Sacar(10000);
+//         Console.WriteLine();
+//         contaBancaria1.ExibirInformações();
+//         ////////////////////////////
+//         contaBancaria1.Sacar(-500);
+//         Console.WriteLine();
+//         contaBancaria1.ExibirInformações();
+
+//     }
+// }
+
+
+
+// 📚 Módulo POO — Aula 4: Encapsulamento 🔐
+
+
+
+// class ContaBancaria
+// {
+//     public string Titular = "";
+//     public int NumeroConta {get; private set;}
+//     public double Saldo {get; private set;}
+
+
+//     public ContaBancaria (string nome, int numeroconta, double saldo)
+//     {
+//         Titular = nome;
+//         NumeroConta = numeroconta;
+//         Saldo = saldo;
+//     }
+
+//     public void ExibirInformações()
+//     {
+//         Console.WriteLine($"Titula: {Titular}");
+//         Console.WriteLine($"Numero da conta: {NumeroConta}");
+//         Console.WriteLine($"Saldo em disponível: {Saldo:C2}");
+//     }
+
+//     public void Depositar(double valor)
+//     {
+//         if (valor > 0)
+//         {
+//             Saldo+=valor;
+//         }
+//         else
+//         {
+//             Console.WriteLine("Entrada inválida...");
+//         }
+//     }
+
+//     public void Sacar(double valores)
+//     {
+//         if (valores > 0 && valores <= Saldo)
+//         {
+//             Saldo-=valores;
+//         }
+//         else
+//         {
+//             Console.WriteLine("Entrada inválida!");
+//         }
+//     }
+// }
+
+
+// class Program
+
+// {
+//     static void Main()
+//     {
+//         ContaBancaria contaBancaria1 = new ContaBancaria ("Erick",22326, 151536);
+//         Console.WriteLine();
+//         contaBancaria1.ExibirInformações();
+//         Console.WriteLine();
+//         contaBancaria1.Depositar(4242);
+//         contaBancaria1.ExibirInformações();        
+//     }
+
+// }
+
+
+class Livro
 
 {
-    public string Titular {get; set;} = "";
-    public int NumeroConta {get; set;}
-    public double Saldo {get; set;}
+    public string Nome {get; set;} = "";
+    public string Autor {get; set;} = "";
+    public int Paginas {get; private set;}
 
-    public ContaBancaria (string titular, int numeroconta, double saldo)
+
+    public Livro (string nome, string autor, int paginas)
     {
-        Titular = titular;
-        NumeroConta = numeroconta;
-        Saldo = saldo;
+        Nome = nome;
+        Autor = autor;
+        Paginas = paginas;
     }
 
-
-    public void ExibirInformações ()
+    public void ExibirInformações()
     {
-        Console.WriteLine($"Titular da conta: {Titular}");
-        Console.WriteLine($"Número da conta: {NumeroConta}");
-        Console.WriteLine($"Saldo em conta: {Saldo:C2}");
+        Console.WriteLine($"Nome do livro escolhido: {Nome}");
+        Console.WriteLine($"Autor do livro escolhido: {Autor}");
+        Console.WriteLine($"Número de páginas: {Paginas}");
     }
 
-    public void Depositar(double valor)
+    public bool LivroLongo()
     {
-        if (valor > 0)
-        {
-            Saldo+=valor;
-        }
-        else
-        {
-            Console.WriteLine("Valor de depósito inválido!");
-        }
-
-    }
-    public void Sacar(double valores)
-    {
-        if (valores > 0 && valores <= Saldo)
-        {
-            Saldo-=valores;
-        }
-        else
-        {
-            Console.WriteLine("Valor de saque inválido!");
-        }
+        return Paginas > 300;
     }
 }
-
 
 class Program
 
 {
     static void Main()
     {
-        ContaBancaria contaBancaria1 = new ContaBancaria("Erick", 45263359, 4561);
+        Livro livro1 = new Livro ("Crime e Castigo", "Fiódor Dostoievski", 592);
+
         Console.WriteLine();
-        contaBancaria1.ExibirInformações();
+        livro1.ExibirInformações();
+        Console.WriteLine(livro1.LivroLongo());
         Console.WriteLine();
-        /////////////////////////////
-        contaBancaria1.Depositar(500);
-        Console.WriteLine();
-        contaBancaria1.ExibirInformações();
-        /////////////////////////////
-        contaBancaria1.Sacar(1000);
-        Console.WriteLine();
-        contaBancaria1.ExibirInformações();
-        ////////////////////////////
-        contaBancaria1.Sacar(10000);
-        Console.WriteLine();
-        contaBancaria1.ExibirInformações();
-        ////////////////////////////
-        contaBancaria1.Sacar(-500);
-        Console.WriteLine();
-        contaBancaria1.ExibirInformações();
         
+        /////////////////////////
+        
+        Livro livro2 = new Livro ("A Metamorfose", "Franz Kafka", 96);
+
+        livro2.ExibirInformações();
+        Console.WriteLine(livro2.LivroLongo());
+        Console.WriteLine();
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
