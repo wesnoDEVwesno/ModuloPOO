@@ -7,24 +7,24 @@
 
 
 
-/* class Livro
-{
+// /* class Livro
+// {
     
-} */
+// } */
 
 
-// 📚 Aula 1 — Etapa 2: Atributos
+// // 📚 Aula 1 — Etapa 2: Atributos
 
-/* class Livro
-{
-    public string Titulo = "";
-    public string Autor = "";
-    public int Paginas = 0;
-}
- */
+// /* class Livro
+// {
+//     public string Titulo = "";
+//     public string Autor = "";
+//     public int Paginas = 0;
+// }
+//  */
 
 
-// 📚 Aula 1 — Etapa 3: Criando um objeto
+// // 📚 Aula 1 — Etapa 3: Criando um objeto
 
 
 
@@ -471,31 +471,115 @@ class Program
 
 
 
-class Produto
+// class Produto
+
+// {
+//     public string Nome {get; set;} = "";
+//     public double Preco {get; set;}
+//     public int Quantidade {get; set;}
+
+
+//     public Produto(string nome, double preco, int quantidade)
+//     {
+//         Nome = nome;
+//         Preco = preco;
+//         Quantidade = quantidade;
+//     }
+
+//     public void ExibirInformações()
+//     {
+//         Console.WriteLine($"Nome: {Nome}");
+//         Console.WriteLine($"Preço: {Preco:C2}");
+//         Console.WriteLine($"Quantidade: {Quantidade}");
+//     }
+
+//     public double CalcularValorEstoque()
+//     {
+//         return Preco * Quantidade;
+//     }
+// }
+
+
+// class Program
+
+// {
+//     static void Main()
+//     {
+//         Produto produto1 = new Produto("Notebook", 3500, 8);
+//         Console.WriteLine();
+//         produto1.ExibirInformações();
+//         Console.WriteLine();
+//         double valorTotal = produto1.CalcularValorEstoque();
+//         Console.WriteLine($"Valor total de {produto1.Nome} em estoque: {valorTotal:C2}");
+
+//         ////////////////////////////////////////////////////
+        
+//         Produto produto2 = new Produto("Mouse Gamer", 150, 12);
+//         Console.WriteLine();
+//         produto2.ExibirInformações();
+//         Console.WriteLine();
+//         double valorTota2 = produto2.CalcularValorEstoque();
+//         Console.WriteLine($"Valor total de {produto2.Nome} em estoque: {valorTota2:C2}");
+        
+//         ////////////////////////////////////////////////////
+        
+//         Produto produto3 = new Produto("Teclado Mecânico", 1400, 15);
+//         Console.WriteLine();
+//         produto3.ExibirInformações();
+//         Console.WriteLine();
+//         double valorTota3 = produto3.CalcularValorEstoque();
+//         Console.WriteLine($"Valor total de {produto3.Nome} em estoque: {valorTota3:C2}");
+//     }
+// }
+
+
+// 📚 Módulo POO — Aula 3
+// 🏦 Sistema Bancário
+
+class ContaBancaria
 
 {
-    public string Nome {get; set;} = "";
-    public double Preco {get; set;}
-    public int Quantidade {get; set;}
+    public string Titular {get; set;} = "";
+    public int NumeroConta {get; set;}
+    public double Saldo {get; set;}
 
-
-    public Produto(string nome, double preco, int quantidade)
+    public ContaBancaria (string titular, int numeroconta, double saldo)
     {
-        Nome = nome;
-        Preco = preco;
-        Quantidade = quantidade;
+        Titular = titular;
+        NumeroConta = numeroconta;
+        Saldo = saldo;
     }
 
-    public void ExibirInformações()
+
+    public void ExibirInformações ()
     {
-        Console.WriteLine($"Nome: {Nome}");
-        Console.WriteLine($"Preço: {Preco:C2}");
-        Console.WriteLine($"Quantidade: {Quantidade}");
+        Console.WriteLine($"Titular da conta: {Titular}");
+        Console.WriteLine($"Número da conta: {NumeroConta}");
+        Console.WriteLine($"Saldo em conta: {Saldo:C2}");
     }
 
-    public double CalcularValorEstoque()
+    public void Depositar(double valor)
     {
-        return Preco * Quantidade;
+        if (valor > 0)
+        {
+            Saldo+=valor;
+        }
+        else
+        {
+            Console.WriteLine("Valor de depósito inválido!");
+        }
+
+    }
+    public void Sacar(double valores)
+    {
+        if (valores > 0 && valores <= Saldo)
+        {
+            Saldo-=valores;
+        }
+        else
+        {
+            Console.WriteLine("Valor de saque inválido!");
+        }
     }
 }
 
@@ -505,32 +589,31 @@ class Program
 {
     static void Main()
     {
-        Produto produto1 = new Produto("Notebook", 3500, 8);
+        ContaBancaria contaBancaria1 = new ContaBancaria("Erick", 45263359, 4561);
         Console.WriteLine();
-        produto1.ExibirInformações();
+        contaBancaria1.ExibirInformações();
         Console.WriteLine();
-        double valorTotal = produto1.CalcularValorEstoque();
-        Console.WriteLine($"Valor total de {produto1.Nome} em estoque: {valorTotal:C2}");
-
-        ////////////////////////////////////////////////////
+        /////////////////////////////
+        contaBancaria1.Depositar(500);
+        Console.WriteLine();
+        contaBancaria1.ExibirInformações();
+        /////////////////////////////
+        contaBancaria1.Sacar(1000);
+        Console.WriteLine();
+        contaBancaria1.ExibirInformações();
+        ////////////////////////////
+        contaBancaria1.Sacar(10000);
+        Console.WriteLine();
+        contaBancaria1.ExibirInformações();
+        ////////////////////////////
+        contaBancaria1.Sacar(-500);
+        Console.WriteLine();
+        contaBancaria1.ExibirInformações();
         
-        Produto produto2 = new Produto("Mouse Gamer", 150, 12);
-        Console.WriteLine();
-        produto2.ExibirInformações();
-        Console.WriteLine();
-        double valorTota2 = produto2.CalcularValorEstoque();
-        Console.WriteLine($"Valor total de {produto2.Nome} em estoque: {valorTota2:C2}");
-        
-        ////////////////////////////////////////////////////
-        
-        Produto produto3 = new Produto("Teclado Mecânico", 1400, 15);
-        Console.WriteLine();
-        produto3.ExibirInformações();
-        Console.WriteLine();
-        double valorTota3 = produto3.CalcularValorEstoque();
-        Console.WriteLine($"Valor total de {produto3.Nome} em estoque: {valorTota3:C2}");
     }
 }
+
+
 
 
 
