@@ -27,7 +27,6 @@
 // // 📚 Aula 1 — Etapa 3: Criando um objeto
 
 
-
 /* class Livro
 {
     public string Titulo = "";
@@ -635,7 +634,7 @@ class Program
 
 //     public void ExibirInformações()
 //     {
-//         Console.WriteLine($"Titula: {Titular}");
+//         Console.WriteLine($"Titular: {Titular}");
 //         Console.WriteLine($"Numero da conta: {NumeroConta}");
 //         Console.WriteLine($"Saldo em disponível: {Saldo:C2}");
 //     }
@@ -656,7 +655,7 @@ class Program
 //     {
 //         if (valores > 0 && valores <= Saldo)
 //         {
-//             Saldo-=valores;
+//             Saldo-=valores; 
 //         }
 //         else
 //         {
@@ -671,66 +670,314 @@ class Program
 // {
 //     static void Main()
 //     {
-//         ContaBancaria contaBancaria1 = new ContaBancaria ("Erick",22326, 151536);
+//         ContaBancaria contaBancaria1 = new ContaBancaria ("Erick",22326, 0);
 //         Console.WriteLine();
 //         contaBancaria1.ExibirInformações();
 //         Console.WriteLine();
-//         contaBancaria1.Depositar(4242);
+//         contaBancaria1.Depositar(50);
+//         contaBancaria1.Sacar(34);
 //         contaBancaria1.ExibirInformações();        
 //     }
 
 // }
 
 
-class Livro
+// 💻 Implementa sistema de biblioteca com encapsulamento e validação de livros
+
+
+// class Livro
+
+// {
+//     public string Nome {get; set;} = "";
+//     public string Autor {get; set;} = "";
+//     public int Paginas {get; private set;}
+
+
+//     public Livro (string nome, string autor, int paginas)
+//     {
+//         Nome = nome;
+//         Autor = autor;
+//         Paginas = paginas;
+//     }
+
+//     public void ExibirInformações()
+//     {
+//         Console.WriteLine($"Nome do livro escolhido: {Nome}");
+//         Console.WriteLine($"Autor do livro escolhido: {Autor}");
+//         Console.WriteLine($"Número de páginas: {Paginas}");
+//     }
+
+//     public bool LivroLongo()
+//     {
+//         return Paginas > 300;
+//     }
+// }
+
+// class Program
+
+// {
+//     static void Main()
+//     {
+//         Livro livro1 = new Livro ("Crime e Castigo", "Fiódor Dostoievski", 592);
+
+//         Console.WriteLine();
+//         livro1.ExibirInformações();
+//         Console.WriteLine(livro1.LivroLongo());
+//         Console.WriteLine();
+        
+//         /////////////////////////
+        
+//         Livro livro2 = new Livro ("A Metamorfose", "Franz Kafka", 96);
+
+//         livro2.ExibirInformações();
+//         Console.WriteLine(livro2.LivroLongo());
+//         Console.WriteLine();
+//     }
+// }
+
+
+// 📚 Módulo POO — Aula 5: Herança
+
+
+
+// class Livro
+
+// {
+//     public string  Nome {get; private set;} = "";
+//     public string  Autor {get; private set;} = "";
+//     public int  Paginas {get; private set;}
+
+
+
+//     public Livro (string nome, string autor, int paginas)
+//     {
+//         Nome = nome;
+//         Autor = autor;
+//         Paginas = paginas;
+//     }
+
+
+//     public virtual void Informações ()
+//     {
+//         Console.WriteLine($"Livro escolhido: {Nome}");
+//         Console.WriteLine($"Autor do livro escolhido: {Autor}");
+//         Console.WriteLine($"Quantas páginas tem: {Paginas}");
+//     }
+
+
+//     public bool NumeroDePaginas ()
+//     {   
+//         return Paginas > 300;
+//     }
+// }
+
+// class Program
+
+// {
+//     static void Main()
+//     {
+//         Livro livro1 = new Livro ("1984", "George Orwell", 328);
+//         ////////////////////
+//         Console.WriteLine();
+//         livro1.Informações();
+//         Console.WriteLine("Livro tem mais de 300 páginas: " + livro1.NumeroDePaginas());
+        
+//     }
+// }
+
+// class LivroDigital : Livro
+
+// {
+//     public double TamanhoArquivoMB {get; private set;}
+//     public void ExibirTamanhoArquivo()
+//     {
+//         Console.WriteLine($"Tamanho do arquivo: {TamanhoArquivoMB} MB");
+//     }
+
+// /*     public override void Informações()
+//     {
+//         base.Informações();
+//         ExibirTamanhoArquivo();
+//     } */
+
+//         public LivroDigital (string nome, string autor, int paginas, double tamanhoArquivoMB)
+//         : base(nome, autor, paginas)
+//     {
+//         TamanhoArquivoMB = tamanhoArquivoMB;   
+//     }
+// }
+
+/* class Program
 
 {
-    public string Nome {get; set;} = "";
-    public string Autor {get; set;} = "";
-    public int Paginas {get; private set;}
 
-
-    public Livro (string nome, string autor, int paginas)
+    static void Main()
     {
-        Nome = nome;
-        Autor = autor;
-        Paginas = paginas;
+        LivroDigital livroDigital = new LivroDigital("O Hobbit", "J.R.R. Tolkien", 310, 2.5);
+        Console.WriteLine();
+        livroDigital.Informações();
+    }
+} */
+
+
+
+// class LivroFisico : Livro
+
+// {
+//     public double PesoGramas {get; private set;}
+//     public void ExibirPeso()
+//     {
+//         Console.WriteLine($"Peso do livro: {PesoGramas}");
+//     }
+
+//     public override void Informações()
+//     {
+//         base.Informações();
+//         ExibirPeso();
+//     }
+
+//     public LivroFisico(string nome, string autor, int paginas, double pesoGramas)
+//         : base(nome, autor, paginas)
+//     {
+//         PesoGramas = pesoGramas;
+//     }
+// }
+
+
+// class Program
+
+// {   
+//     static void Main()
+//     {
+//         LivroFisico livroFisico1 = new LivroFisico("O Senhor dos Anéis: A Sociedade do Anel","J.R.R.Tolkien", 576, 650);
+//         livroFisico1.Informações();
+//     }
+// }
+
+
+// 🧬 Aula 5 — Polimorfismo em C#
+
+class Funcionario
+{
+    public string Pessoa {get; private set;}
+    public int Idade {get; private set;}
+    public decimal Salario {get; private set;}
+
+    public Funcionario (string nome, int idade, decimal salario)
+    {
+        Pessoa = nome;
+        Idade = idade;
+        Salario = salario;
     }
 
-    public void ExibirInformações()
+    public virtual void Fichário ()
     {
-        Console.WriteLine($"Nome do livro escolhido: {Nome}");
-        Console.WriteLine($"Autor do livro escolhido: {Autor}");
-        Console.WriteLine($"Número de páginas: {Paginas}");
-    }
-
-    public bool LivroLongo()
-    {
-        return Paginas > 300;
+        Console.WriteLine($"Funcionário selecionado: {Pessoa}");
+        Console.WriteLine($"Idade: {Idade} anos");
+        Console.WriteLine($"Salário: {Salario:C2}");
     }
 }
 
-class Program
+// class Imprimir
+
+// {
+//     static void Main()
+//     {
+//         Funcionario funcionari = new Funcionario("Letícia", 28, 4340);
+//         funcionari.Fichário();
+//     }
+// }
+
+
+class Desenvolvedor : Funcionario
+
+{
+    public string LinguagemPrincipal {get; private set;}
+    public void MostrarLinguagem()
+    {
+        Console.WriteLine($"Linguagem utilizada: {LinguagemPrincipal}");
+    }
+    public override void Fichário()
+    {
+        base.Fichário();
+        MostrarLinguagem();
+    }
+
+    public Desenvolvedor (string nome, int idade, decimal salario, string liguagemAtual)
+        : base(nome, idade, salario)
+    {   
+        LinguagemPrincipal = liguagemAtual;
+    }
+
+}
+
+// class Imprimir
+
+// {
+//     static void Main()
+//     {
+//         Funcionario desenvolvedor1 = new Desenvolvedor ("Letícia", 28, 4340, "C#");
+//         desenvolvedor1.Fichário();
+//     }
+// }
+
+
+
+class Designer : Funcionario
+
+{
+    // PROPRIEDADES:
+
+    public string FerramentaPrincipal {get; private set;}
+    public string LinguagemPrincipal {get; private set;}
+    
+    ////////////////////////
+    
+    public void MostrarLinguagem()
+    {
+        Console.WriteLine($"Linguagem utilizada: {LinguagemPrincipal}");
+    }
+    public void MostrarFerramenta()
+    {
+        Console.WriteLine($"Ferramenta usada: {FerramentaPrincipal}");
+    }
+
+    public override void Fichário()
+    {
+        base.Fichário();
+        MostrarFerramenta();
+        MostrarLinguagem();
+    }
+    
+    // CONSTRUTORES:
+
+    public Designer (string nome,  int idade, decimal salario, string linguagemAtual, string ferramentaUsada)
+        :base(nome, idade, salario)
+    {
+        FerramentaPrincipal = ferramentaUsada;
+        LinguagemPrincipal = linguagemAtual;
+    }
+
+}
+
+class Imprir
 
 {
     static void Main()
     {
-        Livro livro1 = new Livro ("Crime e Castigo", "Fiódor Dostoievski", 592);
 
-        Console.WriteLine();
-        livro1.ExibirInformações();
-        Console.WriteLine(livro1.LivroLongo());
-        Console.WriteLine();
-        
-        /////////////////////////
-        
-        Livro livro2 = new Livro ("A Metamorfose", "Franz Kafka", 96);
-
-        livro2.ExibirInformações();
-        Console.WriteLine(livro2.LivroLongo());
-        Console.WriteLine();
+        Funcionario designer1 = new Designer ("Letícia", 28, 2420, "C#", "Photoshop");
+        designer1.Fichário();
     }
 }
+
+
+
+
+
+
+
+
 
 
 
