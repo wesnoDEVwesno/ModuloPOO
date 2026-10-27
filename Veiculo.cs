@@ -16,6 +16,7 @@ abstract class Veiculo
         Marca = marca;
         Ano = ano;
     }
+    public abstract void Acelerar (); 
 }
 
 class Carro : Veiculo
@@ -31,12 +32,39 @@ class Carro : Veiculo
         Modelo = modelo;
         Motorizacao = motorizacao;
     }
+
+
+    // public void Informações()
+
+    // {   
+    //     Console.WriteLine($"Marca: {Marca}");
+    //     Console.WriteLine($"Ano: {Ano}");
+    //     Console.WriteLine($"Modelo: {Modelo}");
+    //     Console.WriteLine($"Motorização: {Motorizacao}");
+    // }
+
+    public override void Acelerar()
+    {
+        Console.WriteLine($"Marca: {Marca}");
+        Console.WriteLine($"Ano: {Ano}");
+        Console.WriteLine($"Modelo: {Modelo}");
+        Console.WriteLine($"Motorização: {Motorizacao}");
+        Console.WriteLine($"Carro está acelerando {Modelo}");
+    }
 }
 
 
 
 
+class Program
 
+{
+    static void Main()
+    {
+        Veiculo carro1 = new Carro ("Marca: Volkswagen", 2024, "Golf GTI", "2.0 Turbo");
+        carro1.Acelerar();
+    }
+}
 
 
 
