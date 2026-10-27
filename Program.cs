@@ -857,124 +857,132 @@ class Program
 
 // 🧬 Aula 5 — Polimorfismo em C#
 
-class Funcionario
-{
-    public string Pessoa {get; private set;}
-    public int Idade {get; private set;}
-    public decimal Salario {get; private set;}
+// class Funcionario
+// {
+//     public string Pessoa {get; private set;}
+//     public int Idade {get; private set;}
+//     public decimal Salario {get; private set;}
 
-    public Funcionario (string nome, int idade, decimal salario)
-    {
-        Pessoa = nome;
-        Idade = idade;
-        Salario = salario;
-    }
+//     public Funcionario (string nome, int idade, decimal salario)
+//     {
+//         Pessoa = nome;
+//         Idade = idade;
+//         Salario = salario;
+//     }
 
-    public virtual void Fichário ()
-    {
-        Console.WriteLine($"Funcionário selecionado: {Pessoa}");
-        Console.WriteLine($"Idade: {Idade} anos");
-        Console.WriteLine($"Salário: {Salario:C2}");
-    }
-}
+//     public virtual void Fichário ()
+//     {
+//         Console.WriteLine($"Funcionário selecionado: {Pessoa}");
+//         Console.WriteLine($"Idade: {Idade} anos");
+//         Console.WriteLine($"Salário: {Salario:C2}");
+//     }
+// }
 
-// class Imprimir
+// // class Imprimir
+
+// // {
+// //     static void Main()
+// //     {
+// //         Funcionario funcionarios = new Funcionario("Letícia", 28, 4340);
+// //         funcionarios.Fichário();
+// //     }
+// // }
+
+
+// class Desenvolvedor : Funcionario
+
+// {
+//     public string LinguagemPrincipal {get; private set;}
+//     public void MostrarLinguagem()
+//     {
+//         Console.WriteLine($"Linguagem utilizada: {LinguagemPrincipal}");
+//     }
+//     public override void Fichário()
+//     {
+//         base.Fichário();
+//         MostrarLinguagem();
+//     }
+
+//     public Desenvolvedor (string nome, int idade, decimal salario, string liguagemAtual)
+//         : base(nome, idade, salario)
+//     {   
+//         LinguagemPrincipal = liguagemAtual;
+//     }
+
+// }
+
+// // class Imprimir
+
+// // {
+// //     static void Main()
+// //     {
+// //         Funcionario desenvolvedor1 = new Desenvolvedor ("Letícia", 28, 4340, "C#");
+// //         desenvolvedor1.Fichário();
+// //     }
+// // }
+
+
+// class Designer : Funcionario
+
+// {
+//     // PROPRIEDADES:
+
+//     public string FerramentaPrincipal {get; private set;}
+//     public string LinguagemPrincipal {get; private set;}
+    
+//     ////////////////////////
+    
+//     public void MostrarLinguagem()
+//     {
+//         Console.WriteLine($"Linguagem utilizada: {LinguagemPrincipal}");
+//     }
+//     public void MostrarFerramenta()
+//     {
+//         Console.WriteLine($"Ferramenta usada: {FerramentaPrincipal}");
+//     }
+
+//     public override void Fichário()
+//     {
+//         base.Fichário();
+//         MostrarFerramenta();
+//         MostrarLinguagem();
+//     }
+    
+//     // CONSTRUTORES:
+
+//     public Designer (string nome,  int idade, decimal salario, string linguagemAtual, string ferramentaUsada)
+//         :base(nome, idade, salario)
+//     {
+//         FerramentaPrincipal = ferramentaUsada;
+//         LinguagemPrincipal = linguagemAtual;
+//     }
+
+// }
+
+// class Imprir
 
 // {
 //     static void Main()
 //     {
-//         Funcionario funcionari = new Funcionario("Letícia", 28, 4340);
-//         funcionari.Fichário();
-//     }
-// }
+//         Funcionario designer1 = new Designer ("Letícia", 28, 2420, "C#", "Photoshop");
+//         Funcionario desenvolvedor1 = new Desenvolvedor ("Letícia",28,2340,"C#");
+    
+//         List<Funcionario> funcionarios = new List<Funcionario>();
+//         funcionarios.Add(desenvolvedor1);
+//         funcionarios.Add(designer1);
 
 
-class Desenvolvedor : Funcionario
-
-{
-    public string LinguagemPrincipal {get; private set;}
-    public void MostrarLinguagem()
-    {
-        Console.WriteLine($"Linguagem utilizada: {LinguagemPrincipal}");
-    }
-    public override void Fichário()
-    {
-        base.Fichário();
-        MostrarLinguagem();
-    }
-
-    public Desenvolvedor (string nome, int idade, decimal salario, string liguagemAtual)
-        : base(nome, idade, salario)
-    {   
-        LinguagemPrincipal = liguagemAtual;
-    }
-
-}
-
-// class Imprimir
-
-// {
-//     static void Main()
-//     {
-//         Funcionario desenvolvedor1 = new Desenvolvedor ("Letícia", 28, 4340, "C#");
-//         desenvolvedor1.Fichário();
+//         foreach(Funcionario funcionario1 in funcionarios)
+//         {
+//             funcionario1.Fichário();
+//             Console.WriteLine();
+//         }
 //     }
 // }
 
 
 
-class Designer : Funcionario
-
-{
-    // PROPRIEDADES:
-
-    public string FerramentaPrincipal {get; private set;}
-    public string LinguagemPrincipal {get; private set;}
-    
-    ////////////////////////
-    
-    public void MostrarLinguagem()
-    {
-        Console.WriteLine($"Linguagem utilizada: {LinguagemPrincipal}");
-    }
-    public void MostrarFerramenta()
-    {
-        Console.WriteLine($"Ferramenta usada: {FerramentaPrincipal}");
-    }
-
-    public override void Fichário()
-    {
-        base.Fichário();
-        MostrarFerramenta();
-        MostrarLinguagem();
-    }
-    
-    // CONSTRUTORES:
-
-    public Designer (string nome,  int idade, decimal salario, string linguagemAtual, string ferramentaUsada)
-        :base(nome, idade, salario)
-    {
-        FerramentaPrincipal = ferramentaUsada;
-        LinguagemPrincipal = linguagemAtual;
-    }
-
-}
-
-class Imprir
-
-{
-    static void Main()
-    {
-
-        Funcionario designer1 = new Designer ("Letícia", 28, 2420, "C#", "Photoshop");
-        designer1.Fichário();
-    }
-}
-
-
-
-
-
+// 📘 Módulo POO — Aula 6: Classes Abstratas (abstract)
 
 
 
