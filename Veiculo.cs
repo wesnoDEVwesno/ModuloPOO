@@ -1,186 +1,59 @@
 
+// using static System.Console;
 
 
 
+// abstract class Veiculo
 
+// {
+//     public string Marca {get; private set;} = "";
+//     public int Ano {get; private set;}
 
-abstract class Veiculo
+//     //////////////////////////////////
+    
+//     public Veiculo (string marca, int ano)
+//     {
+//         Marca = marca;
+//         Ano = ano;
+//     }
 
-{
-    public string Marca {get; private set;} = "";
-    public int Ano {get; private set;}
+//     public abstract void Acelerar();
+// }
 
+// class Carro : Veiculo
 
-    public Veiculo (string marca, int ano)
-    {
-        Marca = marca;
-        Ano = ano;
-    }
-    public abstract void Acelerar (); 
-}
+// {
+//     public string Modelo {get; private set;} = "";
+//     public double Motorização {get; private set;}
 
-class Carro : Veiculo
+//     ///////////////////////////////////////////////
+    
+//     public Carro (string marca, int ano, string modelo, double motorização)
+//         : base(marca, ano)
+//     {
+//         Modelo = modelo;
+//         Motorização = motorização;
+//     }
 
-{
-    public string Modelo {get; private set;} = "";
-    public string Motorizacao {get; private set;} = "";
 
 
-    public Carro (string marca, int ano, string modelo, string motorizacao)
-        :base(marca, ano)
-    {
-        Modelo = modelo;
-        Motorizacao = motorizacao;
-    }
+//     public override void Acelerar()
+//     {   
+//         WriteLine($"O {Marca} {Modelo}, ano {Ano}, está acelerando...");
+//     }
+// }
 
 
-    // public void Informações()
+// class Program
 
-    // {   
-    //     Console.WriteLine($"Marca: {Marca}");
-    //     Console.WriteLine($"Ano: {Ano}");
-    //     Console.WriteLine($"Modelo: {Modelo}");
-    //     Console.WriteLine($"Motorização: {Motorizacao}");
-    // }
+// {
+//     static void Main()
 
-    public override void Acelerar()
-    {
-        Console.WriteLine($"Marca: {Marca}");
-        Console.WriteLine($"Ano: {Ano}");
-        Console.WriteLine($"Modelo: {Modelo}");
-        Console.WriteLine($"Motorização: {Motorizacao}");
-        Console.WriteLine($"Carro está acelerando {Modelo}");
-    }
-}
-
-
-
-
-class Program
-
-{
-    static void Main()
-    {
-        Veiculo carro1 = new Carro ("Marca: Volkswagen", 2024, "Golf GTI", "2.0 Turbo");
-        carro1.Acelerar();
-    }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//     {
+//         Veiculo carro1 = new Carro ("Fiat",2025, "Toro", 4.0);
+//         carro1.Acelerar();
+//     }
+// }
 
 
 
