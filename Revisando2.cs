@@ -212,7 +212,6 @@ class JogoCasa10
         }
     }
 
-
     public void ExibirSituação ()
     {
         if (UltrapassouLimite() == true)
