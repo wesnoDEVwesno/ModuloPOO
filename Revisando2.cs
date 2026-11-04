@@ -172,6 +172,7 @@ using static System.Console;
 class JogoCasa10
 
 {
+    public int TentativasRestantes {get; private set;}
     public string Nome {get; private set;} = "";
     public int PosiçãoJogador {get; private set;}
 
@@ -180,6 +181,7 @@ class JogoCasa10
     {
         Nome = nome;
         PosiçãoJogador = 0;
+        TentativasRestantes = 5;
     }
 
     public void ExibirInformações()
@@ -224,7 +226,54 @@ class JogoCasa10
             WriteLine($"Sua posição atual {PosiçãoJogador}. Continue jogando...");
         }
     }
+
+    public void ConsumirTentativas()
+    {
+        if (TentativasRestantes > 0)
+        {
+            TentativasRestantes -=1;
+        }
+    }
+
+    public bool TentativasEsgotadas()
+    {
+        if (TentativasRestantes == 0)
+        {
+            return true;
+        }
+        
+        else
+        {
+            return false;
+        }
+    }
+
+    public void ExibirTentativas()
+    {
+        if (TentativasEsgotadas())
+        {
+            WriteLine("Suas tentativas esgotaram!");
+        }
+
+        else
+        {
+            WriteLine($"Você ainda tem: {TentativasRestantes}");
+        }
+    }
+
+
+    public void RealizarJogada(int casas)
+    {
+        if (TentativasRestantes > 0 && UltrapassouLimite() == false)
+        {
+            Movimentar(casas);
+            ConsumirTentativas();    
+        }
+    }
 }
+
+
+
 
 class Program
 
@@ -235,23 +284,13 @@ class Program
         {
             WriteLine();
             jogoCasa10.ExibirInformações();
-            jogoCasa10.ExibirSituação();   
-            jogoCasa10.Movimentar(3);
+            jogoCasa10.RealizarJogada(3);
             jogoCasa10.ExibirSituação();
-            jogoCasa10.Movimentar(25);
+            jogoCasa10.ExibirTentativas();
+            jogoCasa10.RealizarJogada(9);
             jogoCasa10.ExibirSituação();
+            jogoCasa10.ExibirTentativas();
             WriteLine();
-
-            ////////////////////////////
-
-            if (jogoCasa10.UltrapassouLimite())
-            {
-                WriteLine("Você ultrapassou o limimte de casas, não tem mais movimentos!");
-            }
-            else
-            {
-                jogoCasa10.Movimentar(2);
-            }
         }
     }
 }
