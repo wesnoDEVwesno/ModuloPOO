@@ -175,6 +175,8 @@ class JogoCasa10
     public int TentativasRestantes {get; private set;}
     public string Nome {get; private set;} = "";
     public int PosiçãoJogador {get; private set;}
+    public int CasaVencedora {get; private set;}
+
 
 
     public JogoCasa10(string nome)
@@ -182,6 +184,7 @@ class JogoCasa10
         Nome = nome;
         PosiçãoJogador = 0;
         TentativasRestantes = 5;
+        CasaVencedora = Random.Shared.Next(1,11);
     }
 
     public void ExibirInformações()
@@ -264,12 +267,27 @@ class JogoCasa10
 
     public void RealizarJogada(int casas)
     {
-        if (TentativasRestantes > 0 && UltrapassouLimite() == false)
+        if (TentativasRestantes > 0 && UltrapassouLimite() == false && TentativasRestantes =! JogadorVenceu())
         {
             Movimentar(casas);
             ConsumirTentativas();    
         }
     }
+
+
+    public bool JogadorVenceu()
+    {
+        if (PosiçãoJogador == CasaVencedora)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+
 }
 
 
@@ -282,15 +300,15 @@ class Program
     {
         JogoCasa10 jogoCasa10 = new JogoCasa10 ("Erick");
         {
-            WriteLine();
+            WriteLine($"Casa vencedora: {jogoCasa10.CasaVencedora}");
             jogoCasa10.ExibirInformações();
-            jogoCasa10.RealizarJogada(3);
-            jogoCasa10.ExibirSituação();
             jogoCasa10.ExibirTentativas();
-            jogoCasa10.RealizarJogada(9);
-            jogoCasa10.ExibirSituação();
+            jogoCasa10.RealizarJogada(jogoCasa10.CasaVencedora);
+            if (jogoCasa10.JogadorVenceu())
+            {
+                WriteLine("Parabéns, você venceu!");
+            }
             jogoCasa10.ExibirTentativas();
-            WriteLine();
         }
     }
 }
